@@ -2,6 +2,7 @@ package com.nan19.interceptors;
 
 import com.nan19.pojo.Result;
 import com.nan19.utils.JwtUtil;
+import com.nan19.utils.ThreadLocalUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         // TODO: token校验
         try {
             Map<String, Object> claims = JwtUtil.parseToken(token);
+
+            // 把业务数据存储到ThreadLocal中
+            ThreadLocalUtil.set(claims);
             // 校验通过
             return true;
         } catch (Exception e) {
@@ -25,5 +29,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             // 校验失败
             return false;
         }
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        // TODO: 清理ThreadLocal中的数据
+        ThreadLocalUtil.remove();
     }
 }

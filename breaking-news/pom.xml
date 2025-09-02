@@ -40,6 +40,33 @@
       <artifactId>mysql-connector-j</artifactId>
     </dependency>
 
+    <!-- lambok依赖 -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+
+    <!-- validation依赖 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+    <!-- java-jwt依赖 jwt: json web token -->
+    <!-- Header(头)：记录令牌类型和签名算法等, PayLoad(荷载)：携带自定义的信息, Signature(签名)：对头部和荷载进行加密计算得来 -->
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>4.4.0</version>
+    </dependency>
+
+    <!-- SpringBoot单元测试依赖 -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+
+    <!-- test依赖 -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
