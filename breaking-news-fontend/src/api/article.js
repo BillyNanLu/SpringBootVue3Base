@@ -8,3 +8,18 @@ export const articleCategoryListService = () => {
     // return request.get('/category', {headers: {'Authorization': tokenStore.token}})
     return request.get('/category')
 }
+
+// 文章分类添加
+export const articleCategoryAddService = (data) => {
+    return request.post('/category', data)
+}
+
+// 文章分类修改
+export const articleCategoryUpdateService = (data) => {
+    return request.put('/category', data)
+}
+
+// 文章分类删除
+export const articleCategoryDeleteService = (id) => {
+    return request.delete('/category?id=' + id)
+}
